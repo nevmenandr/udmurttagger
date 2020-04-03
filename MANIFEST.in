@@ -1,0 +1,4 @@
+include README.rst
+include LICENSE
+include udmurttagger/index2tag.json
+include udmurttagger/index2word.json
