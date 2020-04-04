@@ -5,7 +5,7 @@ def long_desc():
         return f.read()
 
 setup(name='udmurttagger',
-      version='0.5.0',
+      version='0.5.1',
       description='Utility for part-of-speech tagging of Udmurt text',
       long_description=long_desc(),
       classifiers=[
