@@ -85,15 +85,15 @@ class Tagger(object):
         """
         This function takes one sentence as an input string and gives 
         a list of tuples ("word", "POS-tag") as an output.
-        The sentence must be up to 40 words. Otherwise the size 
-        would be fit to 40 tokens
+        The sentence must be up to 128 words. Otherwise the size 
+        would be fit to 128 tokens
         """
         
         words = sentence.strip(PUNCTUATION).lower().split()
-        if len(words) > 40:
-            words = words[:40]
+        if len(words) > 128:
+            words = words[:128]
         sent_words = [get_or_else(self.word2index, word, self.word2index["UNK"]) for word in words]
-        sent_encoded = sequence.pad_sequences([sent_words], maxlen=40)
+        sent_encoded = sequence.pad_sequences([sent_words], maxlen=128)
         res = self.model.predict(sent_encoded)
         res_indx = np.argmax(res, axis=2)
         pos_preds = [self.index2tag[str(x)].upper() for x in res_indx[0].tolist()]
