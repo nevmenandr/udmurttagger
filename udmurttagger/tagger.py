@@ -77,7 +77,7 @@ class Tagger(object):
         self.s_vocabsize = min(len(self.word2index), 50000) + 2
         self.t_vocabsize = len(self.tag2index)
         
-        self.model = load_model(os.path.join(BASE_DIR, 'udmurt_pos_model.h5'))
+        self.model = load_model(os.path.join(MODEL_DIR, 'udmurt_pos_model.h5'))
               
         
         
